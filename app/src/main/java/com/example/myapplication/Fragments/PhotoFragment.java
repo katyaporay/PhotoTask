@@ -54,7 +54,7 @@ public class PhotoFragment extends Fragment {
     private Button btn_capture;
     private Button btn_send;
     private TextView txt_help;
-    private String imageSavePath;
+    private String imageSavePath = "";
     private ImageView imageView;
     private Uri fileuri;
     private ProgressBar pb;
@@ -88,7 +88,12 @@ public class PhotoFragment extends Fragment {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadFile();
+                if (!imageSavePath.equals("")) {
+                    uploadFile();
+                }
+                else{
+                    Toast.makeText(getActivity().getApplicationContext(), "Please, make photo", Toast.LENGTH_LONG).show();
+                }
             }
         });
         return view;
@@ -105,7 +110,6 @@ public class PhotoFragment extends Fragment {
                         if(report.areAllPermissionsGranted()){
                             Toast.makeText(getActivity().getApplicationContext(),"All granted",Toast.LENGTH_LONG).show();
                         } else {
-                            // todo Toast - нет прав
                             Toast.makeText(getActivity().getApplicationContext(),"Access denied",Toast.LENGTH_LONG).show();
                         }
                     }

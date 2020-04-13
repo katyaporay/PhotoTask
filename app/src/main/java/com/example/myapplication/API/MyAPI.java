@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import com.example.myapplication.Models.MyResponse;
+
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Multipart;

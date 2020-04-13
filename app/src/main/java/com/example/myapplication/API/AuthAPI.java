@@ -7,7 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface RequestInterface {
+public interface AuthAPI {
     @POST("http://195.19.44.146/auth/")
     Call<ServerResponse> operation(@Body ServerRequest request);
 }
